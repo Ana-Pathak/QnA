@@ -1,5 +1,5 @@
 # QnA App
-This is a question and answer application. This aplication has the following features:
+This is a question and answer application. This application was created in a group project that used agile to implement the project. This aplication has the following features:
 1. Register an account
 2. Use regex for password
 3. Log in and out
@@ -13,4 +13,4 @@ This is a question and answer application. This aplication has the following fea
 11. View count for post
 12. Like/Dislike a post
 13. Search a post
-This application was created in a group project that used agile to implement the project.
+
