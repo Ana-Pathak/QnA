@@ -1,0 +1,188 @@
+form {
+  background: white;
+  width: 100%;
+}
+
+
+.form-field {
+  position: relative;
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: 300;
+  border-bottom: 1px solid #dbe3ec;
+  padding: 5px;
+  margin: 0 0 40px 0;
+}
+
+.formwrapper {
+  position: relative;
+  background: white;
+  width: 350px;
+  box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+  padding: 10px;
+  margin: auto;
+  margin-top: 30px;
+  max-width: 500px;
+}
+
+label {
+  font-family:Consolas, monaco, monospace;
+  font-size: .9em;
+  color: black;
+  margin-bottom: 3px;
+  display: block;
+  font-weight: 300;
+}
+
+input, textarea{
+  font-family:Consolas, monaco, monospace;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+input[type="text"]::placeholder {
+  color: #d4d9e3;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+textarea:hover,
+select:hover {
+  border-color: green;
+  background: lightyellow;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background: white;
+  border-color: green;
+  box-shadow: unset;
+}
+
+input[type="submit"] {
+  background: #66CDAA;
+  border: 0;
+  color: white;
+  border-radius: 2px;
+  margin-top: 15px;
+  font-weight: 400;
+  border: none;
+  transition: all .3s ease-out;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background: white;
+  color: green;
+}
+
+#searchInput {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 90%;
+  background: #f1f1f1;
+}
+
+#searchButton {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  margin-top: 8px;
+  background: #66CDAA;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.postSearch button:hover {
+  background: #42B28D;
+}
+
+.success-wrapper {
+  background: white;
+  width: 350px;
+  box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+  padding: 50px;
+}
+
+.errors {
+  list-style: none;
+  margin: 10px 0;
+  position: absolute;
+  z-index: 10;
+  right: -222px;
+  top: 0;
+  bottom: 0;
+  background: #fae7ea;
+  padding: 9px 15px;
+  border-radius: 3px;
+  border: 1px solid #e1c5c5;
+  color: #8d7575;
+  width: 182px;
+  text-align: center;
+  height: fit-content;
+  margin: auto;
+}
+
+i {
+  position: absolute;
+  margin: auto;
+  top: 4px;
+  bottom: 0;
+  right: 16px;
+  height: fit-content;
+  color: grey;
+}
+
+.form-field .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 10%;
+  left: 120%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.form-field .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 200%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.form-field:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
