@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="QnA App">
+    <title>QnA App</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<header>
+    <nav>
+        <div class="navigation">
+            <a href="{{ url_for('index') }}"> Home</a>
+            <a href="{{ url_for('new_post') }}"> New Post </a>
+            <a href="{{ url_for('all_posts') }}"> All Posts </a>
+            {% if user %}
+            <a href="{{ url_for('get_posts') }}"> Profile </a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Log In</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+</header>
+<br>
+<br>
+<br>
+<hr>
+
+<body>
+<h1>Welcome {{user}} to the QnA App!</h1>
+<h2>Use this site to post, reply and rate questions. Sign in to access all features. Register today!</h2>
+</body>
+
+<footer id="footer">
+    <hr>
+    <h4> Freethinkers Copyright 2021</h4>
+</footer>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="QnA App">
+    <title>QnA - View your Post</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<header>
+    <nav>
+        <div class="navigation">
+            <a href="{{ url_for('index') }}"> Home</a>
+            <a href="{{ url_for('get_posts') }}"> Profile </a>
+            <a href="{{ url_for('new_post') }}"> New Post </a>
+            <a href="{{ url_for('all_posts') }}"> All Posts </a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+</header>
+<br>
+<br>
+<br>
+<hr>
+
+<body>
+<h1>Welcome {{user.name}} to the QnA App!</h1>
+<h2>Post Details</h2>
+<h3>Views: {{ post.views }}</h3>
+<div class="box">
+	<div class="author">
+		<h4>{{ post.user.first_name }} {{ post.user.last_name }}</h4>
+	</div>
+	<div class="title">
+		<h4>{{ post.title }}</h4>
+	</div>
+	<div class="content">
+        <p>{{ post.text }}</p>
+    </div>
+<span class="time-right">{{ post.date }}</span>
+</div>
+<div class="buttonBar">
+	<div class="buttonChild">
+		<button id="replyButton" onclick="toggle()">Reply</button>
+	</div>
+	<div class="buttonChild">
+		<form id="report" action="{{ url_for('report', post_id=post.id) }}" method="post">
+			<input type="submit" value="Report Post" id="reportSubmit">
+		</form>
+	</div>
+	<div class="buttonChild">
+		<form id="like_unlike" action="{{ url_for('like_action', post_id=post.id) }}" method="get">
+			<input type="submit" value="Like  {{ post.likes.count() }}" id="likeButton">
+		</form>
+	</div>
+	<div class="buttonChild">
+		<form id="dislike_undislike" action="{{ url_for('dislike_action', post_id=post.id) }}" method="get">
+			<input type="submit" value="Dislike  {{ post.dislikes.count() }}" id="dislikeButton">
+		</form>
+	</div>
+</div>
+<div id="replyDiv">
+    <form id="reply" action="{{ url_for('reply', post_id=post.id) }}" method="post">
+        <div class="formwrapper">
+            <h2 class="title">Add a reply</h2>
+            <div class="form-field">
+                {{ form.reply }}
+            </div>
+            {{ form.submit }}
+        </div>
+    </form>
+</div>
+
+{% if post.reply %}
+{% if post.reply|length > 0 %}
+<h2>Replies</h2>
+<ul>
+    {% for re in post.reply %}
+    <h4>{{ re.user.first_name }} {{ re.user.last_name }}</h4>
+    <div class="box">
+        <div class="content">
+            <p>{{ re.content }}</p>
+        </div>
+        <span class="time-right">{{ re.date_posted }}</span>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+<!-- script -->
+
+<script>
+function toggle() {
+  var x = document.getElementById("replyDiv");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+</script>
+
+
+</body>
+
+
+<footer id="footer">
+    <hr>
+    <h4> Freethinkers Copyright 2021</h4>
+</footer>
+</html>
